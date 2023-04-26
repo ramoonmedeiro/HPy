@@ -51,11 +51,11 @@ while(True):
 			print(BOLD + 'Wait...\n')
 
 			if n <= l or n <= 0:
-				print('valor de n <= l ou n <= 0,\nlembrando que a regra é: l = n - 1 ou n > 0')
+				print('\033[1;31mERRO\033[m: Valor de n <= l ou n <= 0.\nLembrando que a regra é: l = n - 1 ou n > 0')
 				break
 			else:
 				r = np.linspace(0, 10, 100)
-				R = radial(r, n, l)
+				R = radial(n=n, l=l, r=r)
 
 				# configs
 				sns.set_style('darkgrid')
@@ -88,7 +88,7 @@ while(True):
 			print(BOLD + 'Wait...\n')
 
 			if l < 0 or np.abs(m) > l:
-				print('valor de l < 0 ou abs(m) > l,\nlembrando que a regra é: l > 0 ou abs(m) <= l')
+				print('\033[1;31mERRO\033[m: Valor de l < 0 ou abs(m) > encontrado.\nLembrando que a regra é: l > 0 ou abs(m) <= l')
 				break
 			else:
 				phi = np.linspace(0, np.pi, 100)
@@ -107,10 +107,10 @@ while(True):
 				cmap = plt.get_cmap('twilight_shifted')
 				N = mcolors.Normalize(vmin=z.min(), vmax=z.max()) # NORMALIZATION OF Ylm
 
-
+				
 				fig = plt.figure(figsize=(10,10))
 				ax = fig.add_subplot(111, projection='3d')
-				ax.plot_surface(x, y, z, rstride=1, cstride=1, cmap=plt.get_cmap('twilight_shifted'), facecolors=cmap(N(R)), lw = 0, antialiased=True)
+				ax.plot_surface(x, y, z, rstride=1, cstride=2, facecolors=cmap(N(R)), cmap=cmap, lw = 0, antialiased=True)
 				ax.set_title(fr'$Y_{l}^{m}(\theta, \phi)$', fontsize=20)
 				ax.set_xlabel(r'$x$', fontsize=13)
 				ax.set_ylabel(r'$y$', fontsize=13)

@@ -56,4 +56,4 @@ def angular(m: int, l: int, theta: np.ndarray, phi: np.ndarray) -> np.ndarray:
 
 	"""
 
-	return spe.sph_harm(m, l, theta, phi).real 
+	return spe.sph_harm(m, l, theta, phi).real
