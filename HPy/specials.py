@@ -1,28 +1,58 @@
 import scipy.special as spe
 import numpy as np
 
+# LAGUERRE FUNCTIONS
+def radial(n: int, l: int, r: np.ndarray) -> np.ndarray:
 
-class Psi():
-	def __init__(self, r, n, l):
-		self.r = r
-		self.n = n
-		self.l = l
+	"""
+	Função que calcula os valores do polinômio de Laguerre para cada r dado.
+	
+	Lembrando que deve-se ter:
+		1. n > 0.
+		2. l = n - 1.
 
-	# LAGUERRE FUNCTIONS
-	def radial(r, n, l):
-		coeff = np.sqrt((2/n)**3*spe.factorial(n-l-1)/(2*n*spe.factorial(n+l)))
-		laguerre = spe.assoc_laguerre(2*r/n, n-l-1, 2*l+1)
-		full = coeff * np.exp(-r/n) * (2*r/n)**l * laguerre
+	args:
+		n (int): número quântico principal.
 
-		return full
+		l (int): número quântico secundário.
 
-	# SPHERICAL HARMONICS
-	def angular(m, l, theta, phi):
-		Ylm = spe.sph_harm(m, l, theta, phi).real
+		r (np.ndarray): valores de r no eixo x.
 
-		return Ylm
+	returns:
+		um np.ndarray contendo os valores do polinômio de Laguerre para cada r.
 
-'''
-if __name__ == '__main__':
-	pass
-'''
+	"""
+
+	coeff = np.sqrt((2/n)**3*spe.factorial(n-l-1)/(2*n*spe.factorial(n+l)))
+	laguerre = spe.assoc_laguerre(2*r/n, n-l-1, 2*l+1)
+	full = coeff * np.exp(-r/n) * (2*r/n)**l * laguerre
+
+	return full
+
+# SPHERICAL HARMONICS
+def angular(m, l, theta, phi):
+
+	"""
+	Função que calcula os valores da parte real do polinômio de Legendre para cada 
+	phi e theta dado.
+
+	Lebrando que deve-se ter:
+		1. abs(M) <= l.
+		2. l >= 0.
+
+	args:
+		m (int): ordem do harmônico.
+
+		l (int): grau do harmônico.
+
+		theta (np.ndarray): valores do ângulo theta. Deve estar entre [0, 2*np.pi].
+
+		phi (np.ndarray): valores do ângulo phi. Deve estar entre [0, np.pi].
+
+	returns:
+		a parte real de um np.ndarray do polinômio de Legendre (Yml) 
+		para os valores de m e l.
+
+	"""
+
+	return spe.sph_harm(m, l, theta, phi).real 
