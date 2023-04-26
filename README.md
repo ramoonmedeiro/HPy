@@ -10,10 +10,7 @@ Enjoy!!
 # Installation
 
 ```
-$ git clone https://github.com/ramoonmedeiro/HPy.git
-$ cd HPy
-$ pip3 install -r requirements.txt
-$ python3 main.py
+$ pip3 install hpy
 ```
 
 # Examples
