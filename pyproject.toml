@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "hpy"
-version = "0.1.0"
-description = ""
+version = "1.0.0"
+description = "Um pacote que plota gráficos 2D para a função radial do átomo de hidrogênio e 3D para a parte angular."
 authors = ["Ramon Medeiro <r.medeiro10@gmail.com>"]
 readme = "README.md"
 
