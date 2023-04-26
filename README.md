@@ -10,7 +10,9 @@ Enjoy!!
 # Installation
 
 ```
-$ pip3 install hpy
+$ pip install horpy 
+or
+$ pip3 install horpy
 ```
 
 # Examples
