@@ -23,6 +23,7 @@ def radial(n: int, l: int, r: np.ndarray) -> np.ndarray:
 
 	"""
 
+	# LAGUERRE FUNCTIONS
 	coeff = np.sqrt((2/n)**3*spe.factorial(n-l-1)/(2*n*spe.factorial(n+l)))
 	laguerre = spe.assoc_laguerre(2*r/n, n-l-1, 2*l+1)
 	full = coeff * np.exp(-r/n) * (2*r/n)**l * laguerre
@@ -30,7 +31,7 @@ def radial(n: int, l: int, r: np.ndarray) -> np.ndarray:
 	return full
 
 # SPHERICAL HARMONICS
-def angular(m, l, theta, phi):
+def angular(m: int, l: int, theta: np.ndarray, phi: np.ndarray) -> np.ndarray:
 
 	"""
 	Função que calcula os valores da parte real do polinômio de Legendre para cada 
