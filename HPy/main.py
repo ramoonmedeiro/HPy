@@ -1,7 +1,8 @@
 from specials import Psi
 import numpy as np
+import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
-from matplotlib import cm
 import matplotlib.colors as mcolors
 
 # COLOR STEP
@@ -57,13 +58,13 @@ while(True):
 			fig = plt.figure(figsize=(10,10))
 
 			# FIRST GRAPH
-			fig.add_subplot(211)
+			#fig.add_subplot(211)
 
-			plt.plot(r, R, linewidth=3, c='black')
-			plt.ylabel(f'$R_{n},_{l}(r)$', fontsize=25)
-			plt.axhline(linewidth=2, linestyle="--", color='r')
-			plt.grid('True')
-			plt.xlim(0.0, 10.0)
+			sns.lineplot(r, R, linewidth=3, c='black')
+			#plt.ylabel(f'$R_{n},_{l}(r)$', fontsize=25)
+			##plt.axhline(linewidth=2, linestyle="--", color='r')
+			#plt.grid('True')
+			#plt.xlim(0.0, 10.0)
 
 
 			# SECOND GRAPH
